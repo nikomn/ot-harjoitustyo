@@ -1,0 +1,113 @@
+commit 5fbc3424840ddb503e78a369f23b520b3495605d
+Author: Niko Nieminen <niko.m.nieminen@helsinki.fi>
+Date:   Sat Nov 2 13:52:41 2019 +0200
+
+    Muokattu tiedostoja
+
+ tiedostoja/file2             | 0
+ tiedostoja/{file1 => file22} | 0
+ 2 files changed, 0 insertions(+), 0 deletions(-)
+
+commit 860755168d80f6101288e308b6d46e9db78debb7
+Author: Niko Nieminen <niko.m.nieminen@helsinki.fi>
+Date:   Sat Nov 2 13:49:39 2019 +0200
+
+    Lisätty tiedostoja
+
+ tiedostoja/file1 | 0
+ tiedostoja/file2 | 0
+ tiedostoja/file3 | 0
+ 3 files changed, 0 insertions(+), 0 deletions(-)
+
+commit 3d451c4f5627f81c2e1decb42f72e91651761f4f
+Author: Niko Nieminen <niko.m.nieminen@helsinki.fi>
+Date:   Sat Nov 2 13:44:03 2019 +0200
+
+    Muokattu tiedostoja
+
+ eka.txt    | 37 +------------------------------------
+ kolmas.txt |  4 ++++
+ 2 files changed, 5 insertions(+), 36 deletions(-)
+
+commit 635f9d7239e274a5fad934cd995b7655fdc87af9
+Author: Niko Nieminen <niko.m.nieminen@helsinki.fi>
+Date:   Sat Nov 2 13:42:16 2019 +0200
+
+    Muutettu tiedoston nimeä
+
+ tiedosto.txt => eka.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit 011ef79cefe0e7a4b1a954851fdac9235a7f1856
+Author: Niko Nieminen <niko.m.nieminen@helsinki.fi>
+Date:   Sat Nov 2 13:41:23 2019 +0200
+
+    Poistettu tiedosto
+
+ toinen.txt | 1 -
+ 1 file changed, 1 deletion(-)
+
+commit 3317308d570a22e893f079aa0411ae9640c3bfa2
+Author: Niko Nieminen <niko.m.nieminen@helsinki.fi>
+Date:   Sat Nov 2 13:38:30 2019 +0200
+
+    Muokattu tiedoston sisältöä
+
+ tiedosto.txt | 27 +++++++++++++++++++++++----
+ 1 file changed, 23 insertions(+), 4 deletions(-)
+
+commit db3ee31f2694dcb989befff2c24401124a14de24
+Author: Niko Nieminen <niko.m.nieminen@helsinki.fi>
+Date:   Sat Nov 2 13:34:10 2019 +0200
+
+    Lisätty tiedostoon tekstiä
+
+ tiedosto.txt | 16 ++++++++++++++++
+ 1 file changed, 16 insertions(+)
+
+commit 26437f078f224dd310b45d7a16d58c34f46f357b
+Author: Niko Nieminen <niko.m.nieminen@helsinki.fi>
+Date:   Sat Nov 2 13:21:47 2019 +0200
+
+    Lisätty uusi kansio ja tiedosto
+
+ stuff/uusi.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit 995abd8fa7b727a6893128212a12fc128a8327be
+Author: Niko Nieminen <niko.m.nieminen@helsinki.fi>
+Date:   Sat Nov 2 13:20:28 2019 +0200
+
+    Muokattu tiedostoja
+
+ kolmas.txt | 1 +
+ toinen.txt | 1 +
+ 2 files changed, 2 insertions(+)
+
+commit 45420bd832365daa666de8c08fba67e5065a9791
+Author: Niko Nieminen <niko.m.nieminen@helsinki.fi>
+Date:   Sat Nov 2 13:19:22 2019 +0200
+
+    kolmas.txt luotu
+
+ kolmas.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit 5cb226ce47d20181e9fea04f3d59b83a591287b3
+Author: Niko Nieminen <niko.m.nieminen@helsinki.fi>
+Date:   Sat Nov 2 13:15:10 2019 +0200
+
+    muutos ja lisäys
+
+ tiedosto.txt | 1 +
+ toinen.txt   | 0
+ 2 files changed, 1 insertion(+)
+
+commit 042b36882c6d639a843fc9314f2ffd810f7acac2
+Author: Niko Nieminen <niko.m.nieminen@helsinki.fi>
+Date:   Sat Nov 2 13:12:14 2019 +0200
+
+    tiedosto.txt luotu
+
+ tiedosto.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
