@@ -35,4 +35,4 @@ Sovellukseen on alustavasti suunniteltu toteutettavan seuraavat ominaisuudet
 
 ## Käyttöliittymän luonnostelua
 
-[Alustavia luonnoksia käyttöliittymän mahdollisesta ulkoasusta](./kayttoliittymaluonnos.md)
+[Alustavia luonnoksia käyttöliittymän mahdollisesta ulkoasusta](./kauttoliittymaluonnos.md)
