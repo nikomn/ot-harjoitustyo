@@ -1,13 +1,9 @@
 # Ohjelmistotekniikat kurssi
 
-## Viikon 1 laskarit
+## Harjoitustyö - StudyTimeTracker
 
-Viikolla 1 hajoiteltu **komentorivin** ja *gitin* perusteita.
+[Harjoitustyön lähdekoodi ja dokumentaattio](./StudyTimeTracker)
 
-Lisäksi käyty läpi githubin toiminnallisuutta.
+## Laskentaharjoitukset
 
-Harjoiteltu myös paikallisen ja etäreposition synkronointiin liittyviä tilanteita.
-
-[gitlog.txt](./laskarit/viikko1/gitlog.txt)
-
-[komentorivi.txt](./laskarit/viikko1/komentorivi.txt)
+[Kurssiin liittyvät laskarit](./laskarit)
