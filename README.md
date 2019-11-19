@@ -1,4 +1,4 @@
-# Ohjelmistotekniikat kurssi
+# Ohjelmistotekniikka kurssi
 
 ## Harjoitustyö - StudyTimeTracker
 
