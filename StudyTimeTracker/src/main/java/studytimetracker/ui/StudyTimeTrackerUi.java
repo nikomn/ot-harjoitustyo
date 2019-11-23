@@ -6,8 +6,10 @@
 package studytimetracker.ui;
 
 import java.util.Scanner;
+import static javafx.application.Application.launch;
 import studytimetracker.domain.Tag;
 import studytimetracker.domain.User;
+import studytimetracker.ui.BetaGui;
 
 /**
  *
@@ -22,12 +24,16 @@ public class StudyTimeTrackerUi {
 
         System.out.println("\n1. Log in");
         System.out.println("2. Create new user account");
+        System.out.println("3. Start gui (early beta - unstable!)");
         System.out.println("\nSelect function");
         System.out.print("> ");
         String selection = "";
-        while (!"1".equals(selection) && !"2".equals(selection)) {
+        while (!"1".equals(selection) && !"2".equals(selection) 
+                && !"3".equals(selection)) {
             selection = s.nextLine();
-            if (selection.equals("1")) {
+            if (selection.equals("3")) {
+                launch(BetaGui.class);
+            } else if (selection.equals("1")) {
                 loginScreenCli(s);
             } else if (selection.equals("2")) {
                 newUserScreenCli();
@@ -52,7 +58,7 @@ public class StudyTimeTrackerUi {
     }
 
     public void addTagScreenCli(User user, Scanner s) {
-        
+
         System.out.print("Course name: ");
         String courseName = s.nextLine();
         Tag tagi = new Tag(courseName, user);
