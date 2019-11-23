@@ -15,6 +15,7 @@ public class Tag {
     private String name;
     private double totaltime;  // Time is stored in seconds, double used in order to be able to store longer timeperiods
     private User user;
+    private double startTime;
     
     public Tag(String name, User user) {
         this.name = name;
@@ -28,6 +29,19 @@ public class Tag {
     
     public void changeTime(double time) {
         this.totaltime = time;
+    }
+    
+    public void startTimeTracking() {
+        this.startTime = System.currentTimeMillis();
+    }
+    
+    public void stopTimeTracking() {
+        this.totaltime = this.totaltime + ((System.currentTimeMillis() - this.startTime) / 1000);
+        this.startTime = 0.0;
+    }
+    
+    public String getName(){
+        return this.name;
     }
     
     public String formatTime() {
