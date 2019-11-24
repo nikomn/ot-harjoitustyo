@@ -6,11 +6,12 @@ Opiskelun ajankäytön seurantasovellus.
 
 ## Dokumentaatio
 
-[Alustava määrittelydokumentti](./dokumentaatio/vaatimusmaarittelu.md)
 
-[Tuntikirjanpito sovellukseen tekemiseen käytetystä ajasta](./dokumentaatio/tuntikirjanpito.md)
+[Alustava määrittelydokumentti](https://github.com/nikomn/ot-harjoitustyo/blob/master/StudyTimeTracker/dokumentaatio/vaatimusmaarittelu.md)
 
-[Arkkitehtuurikuvaus](./dokumentaatio/arkkitehtuuri.md)
+[Tuntikirjanpito sovellukseen tekemiseen käytetystä ajasta](https://github.com/nikomn/ot-harjoitustyo/blob/master/StudyTimeTracker/dokumentaatio/tuntikirjanpito.md)
+
+[Arkkitehtuurikuvaus](https://github.com/nikomn/ot-harjoitustyo/blob/master/StudyTimeTracker/dokumentaatio/arkkitehtuuri.md)
 
 ## Kehitysvaiheen toiminnallisuudet (päivitetty 24.11.2019)
 
@@ -28,6 +29,6 @@ Valikosta voi valita toiminnallisuuden seuraavasti
 
 "3" == Käynnistä primitiivinen gui käyttöliittymä, jossa voi tällä hetkellä "kirjautua" ja käynnistää sekunttikellon ajanseurantaa varten:
 
-![Kirjautuminen](./dokumentaatio/kuvat/gui1.png)
+![Kirjautuminen](https://github.com/nikomn/ot-harjoitustyo/blob/master/StudyTimeTracker/dokumentaatio/kuvat/gui1.png)
 
-![Ajanseuranta](./dokumentaatio/kuvat/gui2.png)
+![Ajanseuranta](https://github.com/nikomn/ot-harjoitustyo/blob/master/StudyTimeTracker/dokumentaatio/kuvat/gui2.png)

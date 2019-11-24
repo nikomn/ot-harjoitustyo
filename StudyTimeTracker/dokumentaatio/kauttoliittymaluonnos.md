@@ -3,28 +3,28 @@
 ## Kirjautuminen
 
 
-![Kirjautuminen](./kuvat/kirjautuminen_luonnos.jpg)
+![Kirjautuminen](https://github.com/nikomn/ot-harjoitustyo/blob/master/StudyTimeTracker/dokumentaatio/kuvat/kirjautuminen_luonnos.jpg)
 
 ## Uuden tunnuksen luominen
 
-![Tunnuksen luominen](./kuvat/uusi_tunnus_luonnos.jpg)
+![Tunnuksen luominen](https://github.com/nikomn/ot-harjoitustyo/blob/master/StudyTimeTracker/dokumentaatio/kuvat/uusi_tunnus_luonnos.jpg)
 
 ## Valikko
 
-![Valikko](./kuvat/valikko_luonnos.jpg)
+![Valikko](https://github.com/nikomn/ot-harjoitustyo/blob/master/StudyTimeTracker/dokumentaatio/kuvat/valikko_luonnos.jpg)
 
 ## Kurssinäkymä
 
-![Kurssinäkymä](./kuvat/kurssi_luonnos.jpg)
+![Kurssinäkymä](https://github.com/nikomn/ot-harjoitustyo/blob/master/StudyTimeTracker/dokumentaatio/kuvat/kurssi_luonnos.jpg)
 
 ## Ajan seuranta
 
-![Ajan seuranta](./kuvat/ajanseuranta_luonnos.jpg)
+![Ajan seuranta](https://github.com/nikomn/ot-harjoitustyo/blob/master/StudyTimeTracker/dokumentaatio/kuvat/ajanseuranta_luonnos.jpg)
 
 ## Kirjausten muokkaus
 
-![Kirjausten muokkaaminen](./kuvat/muokkaus_luonnos.jpg)
+![Kirjausten muokkaaminen](https://github.com/nikomn/ot-harjoitustyo/blob/master/StudyTimeTracker/dokumentaatio/kuvat/muokkaus_luonnos.jpg)
 
 ## Yhteenvetonäkymä
 
-![Yhteenveto](./kuvat/yhteenveto_luonnos.jpg)
+![Yhteenveto](https://github.com/nikomn/ot-harjoitustyo/blob/master/StudyTimeTracker/dokumentaatio/kuvat/yhteenveto_luonnos.jpg)

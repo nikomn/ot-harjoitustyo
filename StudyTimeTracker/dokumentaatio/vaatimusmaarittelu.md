@@ -12,11 +12,11 @@ Sovelluksessa (ainakin alku vaiheessa) yksi käyttäjärooli: normaali käyttäj
 
 Sovellukseen on alustavasti suunniteltu toteutettavan seuraavat ominaisuudet
 
-- Tunnuksen luominen
-- Kirjautuminen järjestelmään
-- Kurssien lisääminen
+- Tunnuksen luominen (**Alustava toteutus valmis**)
+- Kirjautuminen järjestelmään (**Alustava toteutus valmis**)
+- Kurssien lisääminen (**Alustava toteutus valmis**)
 - Kurssin valinta
-- Ajan kirjaaminen kurssille reaaliajassa
+- Ajan kirjaaminen kurssille reaaliajassa (**Alustava toteutus valmis**)
 - Ajan kirjaaminen kurssille jälkeenpäin
 - Kirjausten muokkaaminen
 - Kurssikohtaisen tilanteen näyttäminen
