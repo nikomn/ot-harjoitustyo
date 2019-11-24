@@ -10,4 +10,4 @@
 | 19.11. |   1  | Dokumentaation täydentämistä |
 | 23.11. |   3  | Ohjelman toiminnallisuuden laajentamista |
 | 24.11. |   2  | Ohjelman toiminnallisuuden laajentamista ja dokumentaation täydentämistä |
-| yht    | 10.5 | |
+| yht    | 15.5 | |
