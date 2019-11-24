@@ -40,7 +40,7 @@ public class Tag {
         this.startTime = 0.0;
     }
     
-    public String getName(){
+    public String getName() {
         return this.name;
     }
     

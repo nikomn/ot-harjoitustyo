@@ -5,6 +5,8 @@
  */
 package studytimetracker.ui;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 import static javafx.application.Application.launch;
 import studytimetracker.domain.Tag;
@@ -17,6 +19,12 @@ import studytimetracker.ui.BetaGui;
  */
 public class StudyTimeTrackerUi {
 
+    private List<User> users;
+
+    public StudyTimeTrackerUi() {
+        this.users = new ArrayList<>();
+    }
+
     public void startScreenCli(Scanner s) {
         System.out.println("Welcome to StudyTimeTracker beta ui");
         System.out.println("This ui is ment for testing purposes only and "
@@ -28,7 +36,7 @@ public class StudyTimeTrackerUi {
         System.out.println("\nSelect function");
         System.out.print("> ");
         String selection = "";
-        while (!"1".equals(selection) && !"2".equals(selection) 
+        while (!"1".equals(selection) && !"2".equals(selection)
                 && !"3".equals(selection)) {
             selection = s.nextLine();
             if (selection.equals("3")) {
@@ -36,21 +44,44 @@ public class StudyTimeTrackerUi {
             } else if (selection.equals("1")) {
                 loginScreenCli(s);
             } else if (selection.equals("2")) {
-                newUserScreenCli();
+                newUserScreenCli(s);
             }
         }
 
     }
 
     public void loginScreenCli(Scanner s) {
-        System.out.print("Username: ");
-        String userName = s.nextLine();
-        User user = new User(userName);
-        addTagScreenCli(user, s);
+        boolean userExists = false;
+        while (!userExists) {
+            System.out.print("Username: ");
+            String userName = s.nextLine();
+            User user = new User(userName);
+            if (this.users.contains(user)) {
+                userExists = true;
+                addTagScreenCli(user, s);
+            } else {
+                System.out.println("Sorry, no such user");
+
+            }
+        }
+
     }
 
-    public void newUserScreenCli() {
-        System.out.println("Not implemented yet...");
+    public void newUserScreenCli(Scanner s) {
+        boolean userCreated = false;
+        while (!userCreated) {
+            System.out.print("Define new username: ");
+            String userName = s.nextLine();
+            User user = new User(userName);
+            if (this.users.contains(user)) {
+                System.out.println("Sorry, username " + userName
+                        + " is already in use! Please select some other username.");
+            } else {
+                this.users.add(user);
+                addTagScreenCli(user, s);
+            }
+        }
+
     }
 
     public void menuScreenCli() {
@@ -58,7 +89,7 @@ public class StudyTimeTrackerUi {
     }
 
     public void addTagScreenCli(User user, Scanner s) {
-
+        System.out.println("Welcome " + user.getName() + "!");
         System.out.print("Course name: ");
         String courseName = s.nextLine();
         Tag tagi = new Tag(courseName, user);
@@ -84,6 +115,7 @@ public class StudyTimeTrackerUi {
     public static void main(String[] args) {
         Scanner s = new Scanner(System.in);
         StudyTimeTrackerUi st = new StudyTimeTrackerUi();
+        st.users.add(new User("test"));
         st.startScreenCli(s);
 
         //tagi.addTime(120.0);
