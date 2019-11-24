@@ -2,4 +2,4 @@
 
 ## Sovelluslogiikka
 
-![Luokkakaavio](./kuvat/luokkakaavio1.jpg)
+![Luokkakaavio](./kuvat/luokkakaavio1.png)

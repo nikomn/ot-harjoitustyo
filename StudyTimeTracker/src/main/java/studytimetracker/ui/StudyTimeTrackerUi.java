@@ -34,7 +34,7 @@ public class StudyTimeTrackerUi {
         System.out.println("2. Create new user account");
         System.out.println("3. Start gui (early beta - unstable!)");
         System.out.println("\nSelect function");
-        System.out.print("> ");
+        System.out.println("> ");
         String selection = "";
         while (!"1".equals(selection) && !"2".equals(selection)
                 && !"3".equals(selection)) {
@@ -53,7 +53,8 @@ public class StudyTimeTrackerUi {
     public void loginScreenCli(Scanner s) {
         boolean userExists = false;
         while (!userExists) {
-            System.out.print("Username: ");
+            System.out.println("");
+            System.out.println("Username: ");
             String userName = s.nextLine();
             User user = new User(userName);
             if (this.users.contains(user)) {
@@ -70,7 +71,7 @@ public class StudyTimeTrackerUi {
     public void newUserScreenCli(Scanner s) {
         boolean userCreated = false;
         while (!userCreated) {
-            System.out.print("Define new username: ");
+            System.out.println("Define new username: ");
             String userName = s.nextLine();
             User user = new User(userName);
             if (this.users.contains(user)) {
@@ -90,7 +91,7 @@ public class StudyTimeTrackerUi {
 
     public void addCourseScreenCli(User user, Scanner s) {
         System.out.println("Welcome " + user.getName() + "!");
-        System.out.print("Course name: ");
+        System.out.println("Course name: ");
         String courseName = s.nextLine();
         Course tagi = new Course(courseName, user);
         System.out.println("Tracking time on course " + tagi.getName());
