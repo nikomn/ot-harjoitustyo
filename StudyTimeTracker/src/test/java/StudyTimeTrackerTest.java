@@ -10,7 +10,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
-import studytimetracker.domain.Tag;
+import studytimetracker.domain.Course;
 import studytimetracker.domain.User;
 
 /**
@@ -20,12 +20,12 @@ import studytimetracker.domain.User;
 public class StudyTimeTrackerTest {
     
     User testuser;
-    Tag testtag;
+    Course testtag;
 
     @Before
     public void setUp() {
         testuser = new User("test");
-        testtag = new Tag("test", testuser);
+        testtag = new Course("test", testuser);
     }
     
     

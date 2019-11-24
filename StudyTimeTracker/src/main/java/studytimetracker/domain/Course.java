@@ -10,14 +10,14 @@ package studytimetracker.domain;
  *
  * @author nikoniem
  */
-public class Tag {
+public class Course {
     
     private String name;
     private double totaltime;  // Time is stored in seconds, double used in order to be able to store longer timeperiods
     private User user;
     private double startTime;
     
-    public Tag(String name, User user) {
+    public Course(String name, User user) {
         this.name = name;
         this.user = user;
         this.totaltime = 0.0;

@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 import static javafx.application.Application.launch;
-import studytimetracker.domain.Tag;
+import studytimetracker.domain.Course;
 import studytimetracker.domain.User;
 import studytimetracker.ui.BetaGui;
 
@@ -58,7 +58,7 @@ public class StudyTimeTrackerUi {
             User user = new User(userName);
             if (this.users.contains(user)) {
                 userExists = true;
-                addTagScreenCli(user, s);
+                addCourseScreenCli(user, s);
             } else {
                 System.out.println("Sorry, no such user");
 
@@ -78,7 +78,7 @@ public class StudyTimeTrackerUi {
                         + " is already in use! Please select some other username.");
             } else {
                 this.users.add(user);
-                addTagScreenCli(user, s);
+                addCourseScreenCli(user, s);
             }
         }
 
@@ -88,11 +88,11 @@ public class StudyTimeTrackerUi {
         System.out.println("Not implemented yet...");
     }
 
-    public void addTagScreenCli(User user, Scanner s) {
+    public void addCourseScreenCli(User user, Scanner s) {
         System.out.println("Welcome " + user.getName() + "!");
         System.out.print("Course name: ");
         String courseName = s.nextLine();
-        Tag tagi = new Tag(courseName, user);
+        Course tagi = new Course(courseName, user);
         System.out.println("Tracking time on course " + tagi.getName());
         tagi.startTimeTracking();
         System.out.println("Stop tracking by pressing Enter...");
@@ -104,7 +104,7 @@ public class StudyTimeTrackerUi {
 
     }
 
-    public void selectedTagScreenCli() {
+    public void selectedCourseScreenCli() {
         System.out.println("Not implemented yet...");
     }
 
