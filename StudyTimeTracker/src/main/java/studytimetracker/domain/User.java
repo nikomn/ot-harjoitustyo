@@ -21,6 +21,7 @@ public class User {
     public String getName() {
         return this.username;
     }
+    
 
     @Override
     public int hashCode() {

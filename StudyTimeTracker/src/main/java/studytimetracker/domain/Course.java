@@ -6,6 +6,8 @@
 package studytimetracker.domain;
 ;
 
+import java.util.Objects;
+
 /**
  *
  * @author nikoniem
@@ -15,6 +17,35 @@ public class Course {
     private String name;
     private double totaltime;  // Time is stored in seconds, double used in order to be able to store longer timeperiods
     private User user;
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 79 * hash + Objects.hashCode(this.name);
+        hash = 79 * hash + Objects.hashCode(this.user);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Course other = (Course) obj;
+        if (!Objects.equals(this.name, other.name)) {
+            return false;
+        }
+        if (!Objects.equals(this.user, other.user)) {
+            return false;
+        }
+        return true;
+    }
     private double startTime;
     
     public Course(String name, User user) {
@@ -32,16 +63,27 @@ public class Course {
     }
     
     public void startTimeTracking() {
+        System.out.println("Total time so far... " + this.totaltime);
         this.startTime = System.currentTimeMillis();
     }
     
     public void stopTimeTracking() {
-        this.totaltime = this.totaltime + ((System.currentTimeMillis() - this.startTime) / 1000);
+        double endtime = System.currentTimeMillis();
+        System.out.println("Tracked time " + ((endtime - this.startTime) / 1000));
+        this.totaltime = this.totaltime + ((endtime - this.startTime) / 1000);
         this.startTime = 0.0;
     }
     
     public String getName() {
         return this.name;
+    }
+    
+    public double getTime() {
+        return this.totaltime;
+    }
+    
+    public User getUser() {
+        return this.user;
     }
     
     public String formatTime() {
