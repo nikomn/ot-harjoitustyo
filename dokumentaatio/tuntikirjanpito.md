@@ -10,4 +10,7 @@
 | 19.11. |   1  | Dokumentaation täydentämistä |
 | 23.11. |   3  | Ohjelman toiminnallisuuden laajentamista |
 | 24.11. |   2  | Ohjelman toiminnallisuuden laajentamista ja dokumentaation täydentämistä |
-| yht    | 15.5 | |
+| 30.11. |   3  | Ohjelman perustoiminnallisuuden koodaamista |
+| 2.12. |   3  | Ohjelman perustoiminnallisuuden koodaamista |
+| 3.12. |   2.5  | Viikon 5 releasen tekeminen (koodin siivousta, dokumentaation täydentämistä, yms.) |
+| yht    | 24 | |

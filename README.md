@@ -15,6 +15,8 @@ Opiskelun ajankäytön seurantasovellus.
 
 [Arkkitehtuurikuvaus](https://github.com/nikomn/ot-harjoitustyo/blob/master/dokumentaatio/arkkitehtuuri.md)
 
-[Käyttöohje](https://github.com/nikomn/ot-harjoitustyo/blob/master/dokumentaatio/kauttoohje.md)
+[Käyttöohje](https://github.com/nikomn/ot-harjoitustyo/blob/master/dokumentaatio/kayttoohje.md)
 
 ## Release
+
+[Viikko 5](https://github.com/nikomn/ot-harjoitustyo/releases/tag/viikko5)
