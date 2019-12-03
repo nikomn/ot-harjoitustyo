@@ -20,19 +20,24 @@ public class DBWriter {
     private List<Course> courses;
     private List<User> users;
     private DBReader dbreader;
+    private String userfile;     // for example "userdb.txt"
+    private String coursefile;   // for example "coursedb.txt"
 
-    public DBWriter() throws Exception {
+    public DBWriter(String userfile, String coursefile) throws Exception {
         this.dbreader = new DBReader();
-        this.courses = this.dbreader.getCourses();
-        this.users = this.dbreader.getUsers();
+        this.coursefile = coursefile;
+        this.userfile = userfile;
+        this.courses = this.dbreader.getCourses(this.coursefile);
+        this.users = this.dbreader.getUsers(this.userfile);
+        
     }
 
     public void updateCourseDB() throws Exception {
         try {
-            PrintWriter fwriter = new PrintWriter("coursedb.txt");
+            PrintWriter fwriter = new PrintWriter(this.coursefile);
 
             for (Course course : this.courses) {
-                System.out.println(course.getName());
+                // System.out.println(course.getName());
                 fwriter.println(course.getName() + "£" + course.getTime()
                         + "£" + course.getUser().getName());
             }
@@ -44,10 +49,10 @@ public class DBWriter {
 
     public void updateUserDB() throws Exception {
         try {
-            PrintWriter fwriter = new PrintWriter("userdb.txt");
+            PrintWriter fwriter = new PrintWriter(this.userfile);
 
             for (User user : this.users) {
-                System.out.println(user.getName());
+                // System.out.println(user.getName());
                 fwriter.println(user.getName());
             }
             fwriter.close();

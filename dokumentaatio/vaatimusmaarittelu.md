@@ -12,16 +12,16 @@ Sovelluksessa (ainakin alku vaiheessa) yksi käyttäjärooli: normaali käyttäj
 
 Sovellukseen on alustavasti suunniteltu toteutettavan seuraavat ominaisuudet
 
-- Tunnuksen luominen (**Alustava toteutus valmis**)
-- Kirjautuminen järjestelmään (**Alustava toteutus valmis**)
-- Kurssien lisääminen (**Alustava toteutus valmis**)
-- Kurssin valinta
-- Ajan kirjaaminen kurssille reaaliajassa (**Alustava toteutus valmis**)
+- Tunnuksen luominen (**Valmis**)
+- Kirjautuminen järjestelmään (**Valmis**)
+- Kurssien lisääminen (**Valmis**)
+- Kurssin valinta (**Alustava toteutus valmis**)
+- Ajan kirjaaminen kurssille reaaliajassa (**Valmis**)
 - Ajan kirjaaminen kurssille jälkeenpäin
 - Kirjausten muokkaaminen
-- Kurssikohtaisen tilanteen näyttäminen
+- Kurssikohtaisen tilanteen näyttäminen (**Alustava toteutus valmis**)
 - Kokonaistilanteen näyttäminen
-- Kirjautuminen ulos järjestelmästä
+- Kirjautuminen ulos järjestelmästä (**Alustava toteutus valmis**)
 
 ## Jatkokehitysideat
 
@@ -35,4 +35,4 @@ Sovellukseen on alustavasti suunniteltu toteutettavan seuraavat ominaisuudet
 
 ## Käyttöliittymän luonnostelua
 
-[Alustavia luonnoksia käyttöliittymän mahdollisesta ulkoasusta](./kauttoliittymaluonnos.md)
+[Alustavia luonnoksia käyttöliittymän mahdollisesta ulkoasusta](https://github.com/nikomn/ot-harjoitustyo/blob/master/dokumentaatio/kauttoliittymaluonnos.md)

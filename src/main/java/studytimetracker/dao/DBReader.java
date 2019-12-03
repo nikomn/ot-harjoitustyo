@@ -19,10 +19,10 @@ import studytimetracker.domain.User;
  */
 public class DBReader {
     
-    public List<Course> getCourses() throws Exception {
+    public List<Course> getCourses(String dbfile) throws Exception {
         List<Course> courses = new ArrayList<>();
         try {
-            Scanner freader = new Scanner(new File("coursedb.txt"));
+            Scanner freader = new Scanner(new File(dbfile));
             while (freader.hasNextLine()) {
                 String line = freader.nextLine();
                 String[] splitline = line.split("£");
@@ -35,16 +35,16 @@ public class DBReader {
             }
             freader.close();
         } catch (Exception e) {
-            FileWriter fwriter = new FileWriter(new File("coursedb.txt"));
+            FileWriter fwriter = new FileWriter(new File(dbfile));
             fwriter.close();
         }
         return courses;
     }
     
-    public List<User> getUsers() throws Exception {
+    public List<User> getUsers(String dbfile) throws Exception {
         List<User> users = new ArrayList<>();
         try {
-            Scanner freader = new Scanner(new File("userdb.txt"));
+            Scanner freader = new Scanner(new File(dbfile));
             while (freader.hasNextLine()) {
                 String line = freader.nextLine();
                 User u = new User(line);
@@ -53,7 +53,7 @@ public class DBReader {
             }
             freader.close();
         } catch (Exception e) {
-            FileWriter fwriter = new FileWriter(new File("userdb.txt"));
+            FileWriter fwriter = new FileWriter(new File(dbfile));
             fwriter.close();
         }
         return users;

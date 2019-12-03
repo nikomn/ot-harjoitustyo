@@ -27,7 +27,7 @@ public class StudyTimeTrackerUi {
 
     public StudyTimeTrackerUi() throws Exception {
         this.scanner = new Scanner(System.in);
-        this.dbwriter = new DBWriter();
+        this.dbwriter = new DBWriter("userdb.txt", "coursedb.txt");
         this.courses = dbwriter.getCourses();
         this.users = dbwriter.getUsers();
 
