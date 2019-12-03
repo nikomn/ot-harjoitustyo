@@ -15,7 +15,7 @@ git clone https://github.com/nikomn/ot-harjoitustyo.git
 Ohjelma käynnistyy komennolla
 
 ```
-java -jar StudyTimeTracker-1.0-SNAPSHOT.jar
+java -jar studytimetracker.jar
 ```
 
 ### Ladattu projekti
