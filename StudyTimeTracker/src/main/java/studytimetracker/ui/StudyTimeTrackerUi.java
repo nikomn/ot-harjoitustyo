@@ -9,11 +9,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 import static javafx.application.Application.launch;
-import studytimetracker.dao.CourseFileDao;
 import studytimetracker.dao.DBWriter;
-import studytimetracker.dao.UserFileDao;
 import studytimetracker.domain.Course;
-import studytimetracker.domain.StudyTimeService;
 import studytimetracker.domain.User;
 import studytimetracker.ui.BetaGui;
 
@@ -25,7 +22,6 @@ public class StudyTimeTrackerUi {
 
     private List<User> users;
     private List<Course> courses;
-    private StudyTimeService studytimeservice;
     private Scanner scanner;
     private DBWriter dbwriter;
 
@@ -34,12 +30,6 @@ public class StudyTimeTrackerUi {
         this.dbwriter = new DBWriter();
         this.courses = dbwriter.getCourses();
         this.users = dbwriter.getUsers();
-        //this.users = new ArrayList<>();
-        //UserFileDao userDao = new UserFileDao("userdb.txt");
-        //CourseFileDao courseDao = new CourseFileDao("coursedb.txt");
-        //this.users = userDao.getUsers();
-        //this.courses = courseDao.getCourses();
-        //this.studytimeservice = new StudyTimeService(userDao, courseDao);
 
     }
 
@@ -105,8 +95,6 @@ public class StudyTimeTrackerUi {
                 System.out.println("Sorry, username " + userName
                         + " is already in use! Please select some other username.");
             } else {
-                //this.users.add(user);
-                //this.studytimeservice.createUser(userName);
                 this.dbwriter.addUser(user);
                 userCreated = true;
                 addCourseScreenCli(user);
@@ -133,17 +121,11 @@ public class StudyTimeTrackerUi {
             Course course = new Course(courseName, user);
             //this.courses.indexOf(course);
             if (!this.courses.contains(course)) {
-                //this.studytimeservice.createCourse(courseName, user);
                 this.dbwriter.addCourse(course);
             }
             course = this.courses.get(this.courses.indexOf(course));
 
-            //System.out.println("Tracking time on course " + course.getName());
-            //course.startTimeTracking();
             this.dbwriter.trackCourse(course);
-            //System.out.println("Stop tracking by pressing Enter...");
-            //String testi = this.scanner.nextLine();
-            //course.stopTimeTracking();
             System.out.println("Total tracked time for user " + user.getName()
                     + " on course " + course.getName());
             System.out.println(course.formatTime());
@@ -161,15 +143,8 @@ public class StudyTimeTrackerUi {
 
     public static void main(String[] args) throws Exception {
 
-        //UserFileDao userDao = new UserFileDao("userdb.txt");
-        //userDao.create(new User("testaaja!"));
-        //StudyTimeService sts = new StudyTimeService(userDao);
-        //Scanner s = new Scanner(System.in);
         StudyTimeTrackerUi st = new StudyTimeTrackerUi();
-        //st.users.add(new User("test"));
         st.startScreenCli();
-
-        //tagi.addTime(120.0);
         System.exit(0);
 
     }
