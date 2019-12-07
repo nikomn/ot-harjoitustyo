@@ -151,21 +151,29 @@ public class StudyTimeTrackerUi {
     }
 
     public void selectCourseMenuCli(User user) throws Exception {
+        boolean coursesFound = false;
         int index = 0;
         while (index < this.courses.size()) {
             if (this.courses.get(index).getUser().equals(user)) {
+                coursesFound = true;
                 System.out.println(index + ": " + this.courses.get(index).getName());
             }
             index++;
         }
-        System.out.println("Select a course:");
-        try {
-            Integer courseNumber = Integer.parseInt(this.scanner.nextLine());
-            Course course = this.courses.get(courseNumber);
-            selectedCourseScreenCli(user, course);
-        } catch (Exception e) {
-            System.out.println("No such course!");
+        if (coursesFound) {
+            System.out.println("Select a course:");
+            try {
+                Integer courseNumber = Integer.parseInt(this.scanner.nextLine());
+                Course course = this.courses.get(courseNumber);
+                selectedCourseScreenCli(user, course);
+            } catch (Exception e) {
+                System.out.println("No such course!");
+            }
+        } else {
+            System.out.println("No courses found! Please start by adding a course.");
+            menuScreenCli(user);
         }
+
     }
 
     public void selectedCourseScreenCli(User user, Course course) throws Exception {
@@ -187,7 +195,7 @@ public class StudyTimeTrackerUi {
                 case "2":
                     addTimeScreenCli(user, course);
                 case "3":
-                    System.out.println("Not implemented");
+                    editTotalTimeScreenCli(user, course);
                 case "4":
                     selectCourseMenuCli(user);
                 case "x":
@@ -206,6 +214,29 @@ public class StudyTimeTrackerUi {
         selectedCourseScreenCli(user, course);
     }
 
+    public void editTotalTimeScreenCli(User user, Course course) throws Exception {
+        while (true) {
+            System.out.println("Define totaltime (use format \"hh:mm:ss\") "
+                    + "(empty string returns to menu)");
+            String newTotalTime = this.scanner.nextLine();
+            if (newTotalTime.equals("")) {
+                selectedCourseScreenCli(user, course);
+            }
+            String[] timepieces = newTotalTime.split(":");
+            try {
+                Double h = Double.parseDouble(timepieces[0]);
+                Double m = Double.parseDouble(timepieces[1]);
+                Double s = Double.parseDouble(timepieces[2]);
+                Double totalTime = (h * 60 * 60) + (m * 60) + s;
+                //course.changeTime(totalTime);
+                this.dbwriter.editTime(course, totalTime);
+                selectedCourseScreenCli(user, course);
+            } catch (Exception e) {
+                System.out.println("Please try again!");
+            }
+        }
+    }
+
     public void addTimeScreenCli(User user, Course course) throws Exception {
         while (true) {
             System.out.println("Time tracked so far: " + course.formatTime());
@@ -221,7 +252,8 @@ public class StudyTimeTrackerUi {
                 Double m = Double.parseDouble(timepieces[1]);
                 Double s = Double.parseDouble(timepieces[2]);
                 Double timeToAdd = (h * 60 * 60) + (m * 60) + s;
-                course.addTime(timeToAdd);
+                //course.addTime(timeToAdd);
+                this.dbwriter.addTime(course, timeToAdd);
                 selectedCourseScreenCli(user, course);
             } catch (Exception e) {
                 System.out.println("Please try again!");
@@ -231,11 +263,16 @@ public class StudyTimeTrackerUi {
     }
 
     public void summaryScreenCli(User user) throws Exception {
+        boolean foundCourses = false;
         for (Course c : this.courses) {
             if (c.getUser().equals(user)) {
+                foundCourses = true;
                 System.out.println(c.getName());
-                System.out.println("  " + c.formatTime());
+                System.out.println("  " + c.formatVisual());
             }
+        }
+        if (!foundCourses) {
+            System.out.println("No courses tracked!");
         }
         menuScreenCli(user);
 

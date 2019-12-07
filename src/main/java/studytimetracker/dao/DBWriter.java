@@ -98,4 +98,18 @@ public class DBWriter {
         }
 
     }
+    
+    public void addTime(Course course, Double timeToAdd) throws Exception {
+        if (this.courses.contains(course)) {
+            course.addTime(timeToAdd);
+            updateCourseDB();
+        }
+    }
+    
+    public void editTime(Course course, Double timeToAdd) throws Exception {
+        if (this.courses.contains(course)) {
+            course.changeTime(timeToAdd);
+            updateCourseDB();
+        }
+    }
 }
