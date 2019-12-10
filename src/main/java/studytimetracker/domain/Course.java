@@ -9,8 +9,7 @@ package studytimetracker.domain;
 import java.util.Objects;
 
 /**
- *
- * @author nikoniem
+ * Kurssia kuvaava luokka
  */
 public class Course {
     

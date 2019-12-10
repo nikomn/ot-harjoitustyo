@@ -59,3 +59,13 @@ Tiedostossa [checkstyle.xml](https://github.com/nikomn/ot-harjoitustyo/blob/mast
 ```
 
 Tarkistusraportti muodostuu tiedostoon _target/site/checkstyle.html_, joka on html-tiedosto, joka kannattaa avata esim. firefoxissa tai chromessa.
+
+### Javadoc
+
+JavaDoc tiedostot saa luotua komennolla
+
+```
+mvn javadoc:javadoc
+```
+
+JavaDocia tiedostot ovat html muodossa ja niitä voi lukea esim. firefoxissa avaamalla tiedosto target/site/apidocs/index.html

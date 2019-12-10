@@ -17,10 +17,10 @@ Sovellukseen on alustavasti suunniteltu toteutettavan seuraavat ominaisuudet
 - Kurssien lisääminen (**Valmis**)
 - Kurssin valinta (**Alustava toteutus valmis**)
 - Ajan kirjaaminen kurssille reaaliajassa (**Valmis**)
-- Ajan kirjaaminen kurssille jälkeenpäin
-- Kirjausten muokkaaminen
+- Ajan kirjaaminen kurssille jälkeenpäin (**Valmis**)
+- Kirjausten muokkaaminen (**Valmis**)
 - Kurssikohtaisen tilanteen näyttäminen (**Alustava toteutus valmis**)
-- Kokonaistilanteen näyttäminen
+- Kokonaistilanteen näyttäminen (**Valmis**)
 - Kirjautuminen ulos järjestelmästä (**Alustava toteutus valmis**)
 
 ## Jatkokehitysideat

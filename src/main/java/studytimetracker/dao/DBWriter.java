@@ -12,8 +12,7 @@ import studytimetracker.domain.Course;
 import studytimetracker.domain.User;
 
 /**
- *
- * @author nikoniem
+ * Tietokannan hallinnoinnista vastaava luokka
  */
 public class DBWriter {
 
@@ -29,9 +28,13 @@ public class DBWriter {
         this.userfile = userfile;
         this.courses = this.dbreader.getCourses(this.coursefile);
         this.users = this.dbreader.getUsers(this.userfile);
-        
+
     }
 
+    /**
+     * Päivittää ohjelman suorituksen aikana tapahtuvat muutokset
+     * kurssitietokantaan
+     */
     public void updateCourseDB() throws Exception {
         try {
             PrintWriter fwriter = new PrintWriter(this.coursefile);
@@ -47,6 +50,10 @@ public class DBWriter {
         }
     }
 
+    /**
+     * Päivittää ohjelman suorituksen aikana tapahtuvat muutokset
+     * käyttäjätietokantaan
+     */
     public void updateUserDB() throws Exception {
         try {
             PrintWriter fwriter = new PrintWriter(this.userfile);
@@ -61,6 +68,9 @@ public class DBWriter {
         }
     }
 
+    /**
+     * Lisää kurssin sovellukseen ja tietokantaan
+     */
     public void addCourse(Course course) throws Exception {
         if (!this.courses.contains(course)) {
             this.courses.add(course);
@@ -68,7 +78,10 @@ public class DBWriter {
         }
 
     }
-    
+
+    /**
+     * Lisää käyttäjän sovellukseen ja tietokantaan
+     */
     public void addUser(User user) throws Exception {
         if (!this.users.contains(user)) {
             this.users.add(user);
@@ -76,16 +89,25 @@ public class DBWriter {
         }
 
     }
-    
+
+    /**
+     * Palauttaa listauksen kursseista
+     */
     public List<Course> getCourses() {
         return this.courses;
     }
-    
+
+    /**
+     * Palauttaa listauksen käyttäjistä
+     */
     public List<User> getUsers() {
         return this.users;
     }
-    
-    
+
+    /**
+     * Seuraa ajankäyttöä reaaliajassa. Odottaa käyttäjän painavan enter, joka
+     * pysäyttää ajanseurannan.
+     */
     public void trackCourse(Course course) throws Exception {
         if (this.courses.contains(course)) {
             System.out.println("Tracking time on course " + course.getName());
@@ -98,14 +120,24 @@ public class DBWriter {
         }
 
     }
-    
+
+    /**
+     * Lisää aikaa manuaalisesti.
+     *
+     * @param timeToAdd lisättävä aika sekunteina
+     */
     public void addTime(Course course, Double timeToAdd) throws Exception {
         if (this.courses.contains(course)) {
             course.addTime(timeToAdd);
             updateCourseDB();
         }
     }
-    
+
+    /**
+     * Ylikirjoittaa tallennetun ajan käyttäjän syöttämällä ajalla.
+     *
+     * @param timeToAdd aika sekunteina
+     */
     public void editTime(Course course, Double timeToAdd) throws Exception {
         if (this.courses.contains(course)) {
             course.changeTime(timeToAdd);
