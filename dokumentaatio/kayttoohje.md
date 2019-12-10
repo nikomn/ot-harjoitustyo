@@ -2,7 +2,7 @@
 
 ## Komentorivipohjainen käyttöliittymä
 
-Lataa tiedosto [studytimetracker.jar](https://github.com/nikomn/ot-harjoitustyo/releases/tag/viikko5) tai lataa projekti koneellesi komennolla:
+Lataa tiedosto [studytimetracker.jar](https://github.com/nikomn/ot-harjoitustyo/releases/tag/viikko6) tai lataa projekti koneellesi komennolla:
 
 ```
 git clone https://github.com/nikomn/ot-harjoitustyo.git

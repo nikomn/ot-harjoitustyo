@@ -21,6 +21,8 @@ Opiskelun ajankäytön seurantasovellus.
 
 [Viikko 5](https://github.com/nikomn/ot-harjoitustyo/releases/tag/viikko5)
 
+[Viikko 6](https://github.com/nikomn/ot-harjoitustyo/releases/tag/viikko6)
+
 ## Komentoriviltä ajettavia toimintoja
 
 ### Automaattiset testit
