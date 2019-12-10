@@ -14,5 +14,5 @@
 | 2.12. |   3  | Ohjelman perustoiminnallisuuden koodaamista |
 | 3.12. |   2.5  | Viikon 5 releasen tekeminen (koodin siivousta, dokumentaation täydentämistä, yms.) |
 | 7.12. |   2.5  | Ohjelman laajentamista, koodin kirjoittamista |
-| 10.12. |   2.5  | Dokumntaation täydentämistä, javadoc aloittaminen, uusi release |
-| yht    | 24 | |
+| 10.12. |   2.5  | Dokumentaation täydentämistä, javadoc aloittaminen, uusi release |
+| yht    | 29 | |
