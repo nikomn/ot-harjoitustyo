@@ -5,6 +5,8 @@
  */
 package studytimetracker.ui;
 
+import java.util.List;
+import java.util.Scanner;
 import javafx.application.Application;
 import javafx.geometry.HPos;
 import javafx.geometry.Insets;
@@ -19,18 +21,33 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import javafx.animation.AnimationTimer;
+import studytimetracker.dao.DBWriter;
+import studytimetracker.domain.Course;
+import studytimetracker.domain.User;
 
 /**
  *
  * @author nikoniem
  */
 public class BetaGui extends Application {
-
+    private List<User> users;
+    private List<Course> courses;
+    private Scanner scanner;
+    private DBWriter dbwriter;
     private boolean timerOn;
+    private User loggedUser;
+    
+    public BetaGui() throws Exception {
+        this.dbwriter = new DBWriter("userdb.txt", "coursedb.txt");
+        this.courses = dbwriter.getCourses();
+        this.users = dbwriter.getUsers();
+        
+    }
 
     @Override
     public void start(Stage window) throws Exception {
 
+        // Login Screen
         Label l = new Label("Username");
         TextField t = new TextField();
         Button b = new Button("Login");
