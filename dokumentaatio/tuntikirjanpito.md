@@ -15,4 +15,5 @@
 | 3.12. |   2.5  | Viikon 5 releasen tekeminen (koodin siivousta, dokumentaation täydentämistä, yms.) |
 | 7.12. |   2.5  | Ohjelman laajentamista, koodin kirjoittamista |
 | 10.12. |   2.5  | Dokumentaation täydentämistä, javadoc aloittaminen, uusi release |
-| yht    | 29 | |
+| 15.12. |   5  | GUI käyttöliittymän rakentamista |
+| yht    | 34 | |
