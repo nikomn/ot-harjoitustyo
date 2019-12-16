@@ -14,11 +14,17 @@ import studytimetracker.domain.Course;
 import studytimetracker.domain.User;
 
 /**
- *
- * @author nikoniem
+ * 
+ * Tietokannan lukemisesta vastaama luokka
  */
 public class DBReader {
     
+    /**
+     * Metodi, joka lukee tietokannasta olemassa olevat kurssit
+     * @param dbfile
+     * @return Lista kursseista
+     * @throws Exception, esim. jos tietokantaa ei voida käyttöoikeuksista johtuen lukea
+     */
     public List<Course> getCourses(String dbfile) throws Exception {
         List<Course> courses = new ArrayList<>();
         try {
@@ -40,7 +46,12 @@ public class DBReader {
         }
         return courses;
     }
-    
+    /**
+     * Metodi, joka lukee tietokannasta olemassaolevat käyttäjät
+     * @param dbfile
+     * @return Lista käyttäjistä
+     * @throws Exception, esim. jos tietokantatiedostoa ei ole olemassa
+     */
     public List<User> getUsers(String dbfile) throws Exception {
         List<User> users = new ArrayList<>();
         try {

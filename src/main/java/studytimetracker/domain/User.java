@@ -1,35 +1,47 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package studytimetracker.domain;
 
 import java.util.Objects;
 
 /**
- *
- * @author nikoniem
+ * Käyttäjää kuvaava luokka
  */
 public class User {
     private String username;
     
+    /**
+     * Luokan konstruktori
+     * @param username Käyttjän nimi
+     */
     public User(String username) {
         this.username = username;
     }
+    
+    /**
+     * Palauttaa olion nimen
+     * @return username
+     */
     
     public String getName() {
         return this.username;
     }
     
-
+    /**
+     * hashcoden laskeva metodi
+     * @return hash
+     */
     @Override
     public int hashCode() {
         int hash = 7;
         hash = 29 * hash + Objects.hashCode(this.username);
         return hash;
     }
-
+    
+    /**
+     * Määrittelee equals arvon
+     * @param obj
+     * @return true|false sen mukaan onko olio sama
+     */
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
