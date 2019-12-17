@@ -16,4 +16,5 @@
 | 7.12. |   2.5  | Ohjelman laajentamista, koodin kirjoittamista |
 | 10.12. |   2.5  | Dokumentaation täydentämistä, javadoc aloittaminen, uusi release |
 | 15.12. |   5  | GUI käyttöliittymän rakentamista |
-| yht    | 34 | |
+| 17.12. |   1.5  | Dokumentaation täydentämistä |
+| yht    | 35.5 | |

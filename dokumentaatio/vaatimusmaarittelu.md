@@ -12,8 +12,8 @@ Sovelluksessa (ainakin alku vaiheessa) yksi käyttäjärooli: normaali käyttäj
 
 Sovellukseen on alustavasti suunniteltu toteutettavan seuraavat ominaisuudet
 
-- Tunnuksen luominen (**Valmis**)
-- Kirjautuminen järjestelmään (**Valmis**)
+- Tunnuksen luominen (**Valmis - myös GUI**)
+- Kirjautuminen järjestelmään (**Valmis - myös GUI**)
 - Kurssien lisääminen (**Valmis**)
 - Kurssin valinta (**Alustava toteutus valmis**)
 - Ajan kirjaaminen kurssille reaaliajassa (**Valmis**)

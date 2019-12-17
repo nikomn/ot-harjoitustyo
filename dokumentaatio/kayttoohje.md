@@ -42,13 +42,18 @@ Tämän jälkeen pääset valitsemaan kurssin ja kirjaamaan aikaa.
 
 Jos sinulla on jo käyttäjätunnus, valitse käynnistys-valikosta vaihtoehto "1. Log in"
 
-Syötä käyttäjätunnus ja paina enter, jonka jälkeen pääset valitsemaan kurssin ja kirjaamaan aikaa.
+Syötä käyttäjätunnus ja paina enter, jonka jälkeen pääset pää-valikkoon,
+jossa voit lisätä kursseja, kirjata aikaa kurssille ja katsoa yhteenvedon
+kaikkien kurssien tilanteesta.
 
 ## Kurssin valitseminen ja ajan seuraaminen
 
-Syötä kurssin nimi ja paina enter. Pelkkä enter palaa takaisin käynnistys-valikkoon.
-Ohjelma siirtyy seuraamaan aikaa. Kun olet valmis, voit lopettaa ajan seurannan painamalla enter.
-Ohjelma näyttää kuinka paljon aikaa kurssille on kirjattu.
+Kurssilistauksen pääsee näkemään valitsemalla pää-valikosta valitsemalla "1. Select course".
+Listasta voi valita haluamansa kurssin numeron, jonka jälkeen pääsee kurssin valikkoon.
+
+Kurssivalikosta voi valita haluaako seurata aikaa reaaliajassa, lisätä aikaa
+erikseen käsin vai kirjata ajan kokonaan uusiksi.
+
 
 ## Ohjelman sulkeminen
 
