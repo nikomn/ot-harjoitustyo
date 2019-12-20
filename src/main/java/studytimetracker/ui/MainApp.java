@@ -5,6 +5,7 @@
  */
 package studytimetracker.ui;
 
+import com.sun.java.swing.plaf.windows.resources.windows;
 import java.util.ArrayList;
 import java.util.List;
 import javafx.application.Application;
@@ -21,6 +22,7 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import javafx.animation.AnimationTimer;
+import javafx.animation.Timeline;
 import javafx.geometry.Orientation;
 import javafx.scene.chart.BarChart;
 import javafx.scene.chart.CategoryAxis;
@@ -43,34 +45,43 @@ public class MainApp extends Application {
     private List<User> users;
     private List<Course> courses;
     private DBWriter dbwriter;
-    private boolean timerOn;
+    private String timerStatus;
     private User loggedUser;
+    private Course selectedCourse;
+    private boolean courseIsSelected;
+    private Stage window;
+    private Timeline timeline;
 
     // Gui Components
-    private Scene courseListScene;
+    private Scene courseListScene, mainMenuScene;
     private Label userNameLabel, stopTimerLabel, loginErrorLabel, newUserNameLabel, newUserErrorLabel;
     private TextField usernameField, newUserNameField;
-    private Button loginSceneButton, loginButton, startTimerButton, stopTimerButton, pauseTimerButton, newUserSceneButton, createUserButton, backToLoginButton, selectCourseButton, selectedCourseButton;
+    private Button trackTimeSceneButton, loginSceneButton, loginButton, startTimerButton, stopTimerButton, pauseTimerButton, newUserSceneButton, createUserButton, backToLoginButton, selectCourseButton, selectedCourseButton, mainMenuButton;
 
     @Override
     public void start(Stage window) throws Exception {
+        this.window = window;
         this.dbwriter = new DBWriter("userdb.txt", "coursedb.txt");
         this.courses = dbwriter.getCourses();
         this.users = dbwriter.getUsers();
+        this.mainMenuButton = new Button("Back to menu!");
+        this.trackTimeSceneButton = new Button("Track time");
+        
 
         Scene loginScene = buildLoginScene();
         Scene newUserScene = buildNewUserScene();
-        Scene mainMenuScene = buildMainMenuScene();
-        Scene testScene = buildCourseMenuScene();
+        this.mainMenuScene = buildMainMenuScene();
+        //Scene testScene = buildCourseMenuScene();
 
-        window.setTitle("StudyTimeTracker!");
-        window.setScene(loginScene);
-        //window.setScene(testScene);
-        window.show();
+        this.window.setTitle("StudyTimeTracker!");
+        this.window.setScene(loginScene);
+        //this.window.setScene(testScene);
+        this.window.show();
 
         this.loginButton.setOnAction((event) -> {
             if (logUserIn(this.usernameField.getText())) {
-                window.setScene(mainMenuScene);
+                this.courseIsSelected = false;
+                this.window.setScene(this.mainMenuScene);
             } else {
                 this.loginErrorLabel.setText("Username " + this.usernameField.getText() + " not found!");
             }
@@ -78,18 +89,18 @@ public class MainApp extends Application {
         });
 
         this.newUserSceneButton.setOnAction((event) -> {
-            window.setScene(newUserScene);
+            this.window.setScene(newUserScene);
         });
 
         this.backToLoginButton.setOnAction((event) -> {
-            window.setScene(loginScene);
+            this.window.setScene(loginScene);
         });
 
         this.createUserButton.setOnAction((event) -> {
             String errorCheck = createNewUser(this.newUserNameField.getText());
             //System.out.println(errorCheck);
             if (errorCheck == "") {
-                window.setScene(mainMenuScene);
+                this.window.setScene(this.mainMenuScene);
             } else {
                 this.newUserErrorLabel.setText(errorCheck);
             }
@@ -97,9 +108,17 @@ public class MainApp extends Application {
 
         this.selectCourseButton.setOnAction((event) -> {
             Scene courseListScene = buildCourseListScene();
-            window.setScene(courseListScene);
+            this.window.setScene(courseListScene);
+        });
+
+        this.mainMenuButton.setOnAction((event) -> {
+            this.window.setScene(this.mainMenuScene);
         });
         
+        
+        this.trackTimeSceneButton.setOnAction((event) -> {
+            buildTimeTrackerScene();
+        });
 
     }
 
@@ -172,8 +191,7 @@ public class MainApp extends Application {
         mainMenuPane.setVgap(10);
         mainMenuPane.setHgap(10);
         mainMenuPane.setPadding(new Insets(20, 20, 20, 20));
-        
-        
+
         Scene mainMenuScene = new Scene(mainMenuPane);
         return mainMenuScene;
     }
@@ -193,12 +211,16 @@ public class MainApp extends Application {
             b.setMinHeight(90);
             b.setMaxHeight(90);
             b.setOnAction((event) -> {
-                System.out.println("Nappia " + b.getText() + " painettu!"); 
+                //System.out.println("Nappia " + b.getText() + " painettu!");
+                int i = this.courses.indexOf(new Course(b.getText(), this.loggedUser));
+                this.selectedCourse = this.courses.get(i);
+                // System.out.println(this.selectedCourse.formatTime());
+                Scene courseMenuScene = buildCourseMenuScene();
+                this.window.setScene(courseMenuScene);
             });
             courseListPane.add(b, 0, index);
             index++;
         }
-        
 
         courseListPaneScroll.setPrefSize(500, 320);
         courseListPane.setPrefSize(450, 320);
@@ -215,23 +237,44 @@ public class MainApp extends Application {
     }
 
     public Scene buildCourseMenuScene() {
+        //System.out.println("menu alustus");
+        //System.out.println(this.selectedCourse.formatTime());
+        Double timetracked = this.selectedCourse.getTime();
+        //Double timetracked = 1000.0;
+        Double minutes = Math.floor(timetracked / 60);
+        Double hours = Math.floor(minutes / 60);
+
         NumberAxis xAx = new NumberAxis();
         CategoryAxis yAx = new CategoryAxis();
+
         BarChart<Number, String> courseBarChart = new BarChart<>(xAx, yAx);
-        courseBarChart.setTitle("Time tracked (hours)");
+        courseBarChart.setTitle("Time tracked (hours) on course " + this.selectedCourse.getName());
         courseBarChart.setLegendVisible(false);
         XYChart.Series trackedTime = new XYChart.Series();
-        trackedTime.getData().add(new XYChart.Data(120, "JYM"));
+        //trackedTime.getData().add(new XYChart.Data(120, "JYM"));
+        trackedTime.getData().add(new XYChart.Data(hours.intValue(), this.selectedCourse.getName()));
         courseBarChart.getData().add(trackedTime);
-        
+
         courseBarChart.setMinSize(500, 120);
         courseBarChart.setMaxSize(500, 120);
-        
+
         GridPane courseMenuPane = new GridPane();
-        Button b1 = new Button("Test Button!");
-        courseMenuPane.add(b1, 0, 0);
-        courseMenuPane.add(courseBarChart, 0, 1);
-        
+        courseMenuPane.add(courseBarChart, 0, 0);
+        //Button b1 = new Button("Test Button!");
+        //this.mainMenuButton = new Button("Back to menu!");
+        //this.trackTimeSceneButton = new Button("Track time");
+        this.trackTimeSceneButton.setMaxWidth(180);
+        Button addTimeSceneButton = new Button("Add time manually");
+        addTimeSceneButton.setMaxWidth(180);
+        Button changeTimeSceneButton = new Button("Change tracked time");
+        changeTimeSceneButton.setMaxWidth(180);
+        // changeTimeSceneButton.wrapTextProperty().setValue(true);
+        this.mainMenuButton.setMaxWidth(180);
+        courseMenuPane.add(this.trackTimeSceneButton, 0, 1);
+        courseMenuPane.add(addTimeSceneButton, 0, 2);
+        courseMenuPane.add(changeTimeSceneButton, 0, 3);
+        courseMenuPane.add(this.mainMenuButton, 0, 4);
+
         courseMenuPane.setPrefSize(500, 320);
         courseMenuPane.setAlignment(Pos.CENTER);
         courseMenuPane.setVgap(10);
@@ -242,6 +285,104 @@ public class MainApp extends Application {
         Scene courseScene = new Scene(courseMenuPane);
         return courseScene;
 
+    }
+
+    public void buildTimeTrackerScene() {
+        this.timerStatus = "Stopped";
+        GridPane timeTrackingPane = new GridPane();
+        timeTrackingPane.setPrefSize(500, 320);
+        timeTrackingPane.setAlignment(Pos.CENTER);
+        timeTrackingPane.setVgap(10);
+        timeTrackingPane.setHgap(10);
+        timeTrackingPane.setPadding(new Insets(20, 20, 20, 20));
+        //String timerString = "00:00:00";
+        Label timerLabel = new Label("00:00:00");
+        timerLabel.setFont(new Font(32.0));
+
+        Button startButton = new Button("Start");
+        Button pauseButton = new Button("Pause");
+        Button stopButton = new Button("Stop");
+
+        timeTrackingPane.add(timerLabel, 0, 0, 3, 1);
+        timeTrackingPane.add(startButton, 0, 1);
+        timeTrackingPane.add(pauseButton, 1, 1);
+        timeTrackingPane.add(stopButton, 2, 1);
+
+        Scene timerScene = new Scene(timeTrackingPane);
+
+        this.window.setScene(timerScene);
+        
+
+        startButton.setOnAction((event) -> {
+            this.timerStatus = "On";
+            new AnimationTimer() {
+                long pasttime = 0;
+                int t = 0;
+
+                @Override
+                public void handle(long now) {
+                    if (CurrentTimerStatus().equals("Stopped")) {
+                        try {
+                            addTrackedTime(this.t);
+                        } catch (Exception e) {
+                            System.out.println("Error");
+                        }
+                        
+                        stop();
+                    }
+                    if (CurrentTimerStatus().equals("Paused")) {
+                        try {
+                            addTrackedTime(this.t);
+                        } catch (Exception e) {
+                            System.out.println("Error");
+                        }
+                        stop();
+                    }
+                    
+                    if (now - pasttime < 1000000000) {
+                        return;
+                    }
+                    
+
+                    this.t++;
+                    Double minutes = Math.floor(this.t / 60);
+                    Double hours = Math.floor(minutes / 60);
+                    minutes = minutes - (60 * hours);
+                    Double seconds = this.t - (60 * minutes) - (60 * 60 * hours);
+
+                    // Add leading zeros if needed...
+                    String hoursFormat = hours.intValue() + "";
+                    if (hoursFormat.length() == 1) {
+                        hoursFormat = "0" + hoursFormat;
+                    }
+
+                    String minutesFormat = minutes.intValue() + "";
+                    if (minutesFormat.length() == 1) {
+                        minutesFormat = "0" + minutesFormat;
+                    }
+
+                    String secondsFormat = seconds.intValue() + "";
+                    if (secondsFormat.length() == 1) {
+                        secondsFormat = "0" + secondsFormat;
+                    }
+
+                    // System.out.println("sec");
+                    timerLabel.setText(hoursFormat + ":" + minutesFormat + ":" + secondsFormat);
+
+                    this.pasttime = now;
+                }
+            }.start();
+        });
+        
+        stopButton.setOnAction((event) -> {
+           this.timerStatus = "Stopped";
+           this.window.setScene(mainMenuScene);
+        });
+        
+        
+        pauseButton.setOnAction((event) -> {
+           this.timerStatus = "Paused"; 
+        });
     }
 
     public boolean logUserIn(String userName) {
@@ -282,6 +423,17 @@ public class MainApp extends Application {
 
         return courseList;
     }
+    
+    public String CurrentTimerStatus() {
+        return this.timerStatus;
+    }
+    
+    public void addTrackedTime(int time) throws Exception {
+        Double timeToAdd = 0.0 + time;
+        this.dbwriter.addTime(this.selectedCourse, timeToAdd);
+    }
+    
+    
 
     public static void main(String[] args) {
         launch(MainApp.class);

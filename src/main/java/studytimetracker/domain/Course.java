@@ -19,6 +19,7 @@ public class Course {
     private String name;
     private double totaltime;  // Time is stored in seconds, double used in order to be able to store longer timeperiods
     private User user;
+    private double startTime;
 
     /**
      * Laskee mm. hashmapin käyttämän hashCoden, joka toimii olion uniikkina
@@ -56,7 +57,7 @@ public class Course {
         }
         return true;
     }
-    private double startTime;
+    
 
     /**
      * Konstruktori
