@@ -53,10 +53,12 @@ public class MainApp extends Application {
     private Timeline timeline;
 
     // Gui Components
+    private Scene baseScene;
+    private GridPane basePane;
     private Scene courseListScene, mainMenuScene;
     private Label userNameLabel, stopTimerLabel, loginErrorLabel, newUserNameLabel, newUserErrorLabel;
     private TextField usernameField, newUserNameField;
-    private Button trackTimeSceneButton, loginSceneButton, loginButton, startTimerButton, stopTimerButton, pauseTimerButton, newUserSceneButton, createUserButton, backToLoginButton, selectCourseButton, selectedCourseButton, mainMenuButton;
+    private Button addCourseButton, showOverviewButton, changeTimeSceneButton, addTimeSceneButton, trackTimeSceneButton, loginSceneButton, loginButton, startTimerButton, stopTimerButton, pauseTimerButton, newUserSceneButton, createUserButton, backToLoginButton, selectCourseButton, selectedCourseButton, mainMenuButton;
 
     @Override
     public void start(Stage window) throws Exception {
@@ -66,7 +68,20 @@ public class MainApp extends Application {
         this.users = dbwriter.getUsers();
         this.mainMenuButton = new Button("Back to menu!");
         this.trackTimeSceneButton = new Button("Track time");
-        
+        this.addTimeSceneButton = new Button("Add time manually");
+        this.changeTimeSceneButton = new Button("Change tracked time");
+        this.showOverviewButton = new Button("Show overwiev");
+        this.addCourseButton = new Button("Add new course");
+        this.selectCourseButton = new Button("Select course");
+
+        // Create base scene
+        this.basePane = new GridPane();
+        this.basePane.setPrefSize(500, 320);
+        this.basePane.setAlignment(Pos.CENTER);
+        this.basePane.setVgap(10);
+        this.basePane.setHgap(10);
+        this.basePane.setPadding(new Insets(20, 20, 20, 20));
+        this.baseScene = new Scene(this.basePane);
 
         Scene loginScene = buildLoginScene();
         Scene newUserScene = buildNewUserScene();
@@ -114,10 +129,25 @@ public class MainApp extends Application {
         this.mainMenuButton.setOnAction((event) -> {
             this.window.setScene(this.mainMenuScene);
         });
-        
-        
+
         this.trackTimeSceneButton.setOnAction((event) -> {
             buildTimeTrackerScene();
+        });
+
+        this.addTimeSceneButton.setOnAction((event) -> {
+            buildTimeAddingScene();
+        });
+
+        this.changeTimeSceneButton.setOnAction((event) -> {
+            buildTimeChangingScene();
+        });
+        
+        this.showOverviewButton.setOnAction((event) -> {
+            buildSummaryScene();
+        });
+        
+        this.addCourseButton.setOnAction((event) -> {
+            buildNewCourseScene();
         });
 
     }
@@ -172,18 +202,18 @@ public class MainApp extends Application {
 
     public Scene buildMainMenuScene() {
         GridPane mainMenuPane = new GridPane();
-        this.selectCourseButton = new Button("Select course");
+        //this.selectCourseButton = new Button("Select course");
         this.selectCourseButton.setMaxWidth(140);
-        Button addCourseButton = new Button("Add new course");
-        addCourseButton.setMaxWidth(140);
-        Button showOverviewButton = new Button("Show overwiev");
-        showOverviewButton.setMaxWidth(140);
+        //Button addCourseButton = new Button("Add new course");
+        this.addCourseButton.setMaxWidth(140);
+        //Button showOverviewButton = new Button("Show overwiev");
+        this.showOverviewButton.setMaxWidth(140);
         Button logOutButton = new Button("Log out");
         logOutButton.setMaxWidth(140);
 
         mainMenuPane.add(this.selectCourseButton, 0, 1);
-        mainMenuPane.add(addCourseButton, 0, 2);
-        mainMenuPane.add(showOverviewButton, 0, 3);
+        mainMenuPane.add(this.addCourseButton, 0, 2);
+        mainMenuPane.add(this.showOverviewButton, 0, 3);
         mainMenuPane.add(logOutButton, 0, 4);
 
         mainMenuPane.setPrefSize(500, 320);
@@ -264,15 +294,15 @@ public class MainApp extends Application {
         //this.mainMenuButton = new Button("Back to menu!");
         //this.trackTimeSceneButton = new Button("Track time");
         this.trackTimeSceneButton.setMaxWidth(180);
-        Button addTimeSceneButton = new Button("Add time manually");
-        addTimeSceneButton.setMaxWidth(180);
-        Button changeTimeSceneButton = new Button("Change tracked time");
-        changeTimeSceneButton.setMaxWidth(180);
+        //Button addTimeSceneButton = new Button("Add time manually");
+        this.addTimeSceneButton.setMaxWidth(180);
+        //Button changeTimeSceneButton = new Button("Change tracked time");
+        this.changeTimeSceneButton.setMaxWidth(180);
         // changeTimeSceneButton.wrapTextProperty().setValue(true);
         this.mainMenuButton.setMaxWidth(180);
         courseMenuPane.add(this.trackTimeSceneButton, 0, 1);
-        courseMenuPane.add(addTimeSceneButton, 0, 2);
-        courseMenuPane.add(changeTimeSceneButton, 0, 3);
+        courseMenuPane.add(this.addTimeSceneButton, 0, 2);
+        courseMenuPane.add(this.changeTimeSceneButton, 0, 3);
         courseMenuPane.add(this.mainMenuButton, 0, 4);
 
         courseMenuPane.setPrefSize(500, 320);
@@ -296,22 +326,24 @@ public class MainApp extends Application {
         timeTrackingPane.setHgap(10);
         timeTrackingPane.setPadding(new Insets(20, 20, 20, 20));
         //String timerString = "00:00:00";
+        Label courseNameLabel = new Label(this.selectedCourse.getName());
+        courseNameLabel.setFont(new Font(32.0));
         Label timerLabel = new Label("00:00:00");
         timerLabel.setFont(new Font(32.0));
 
         Button startButton = new Button("Start");
-        Button pauseButton = new Button("Pause");
+        //Button pauseButton = new Button("Pause");
         Button stopButton = new Button("Stop");
 
-        timeTrackingPane.add(timerLabel, 0, 0, 3, 1);
-        timeTrackingPane.add(startButton, 0, 1);
-        timeTrackingPane.add(pauseButton, 1, 1);
-        timeTrackingPane.add(stopButton, 2, 1);
+        timeTrackingPane.add(courseNameLabel, 0, 0, 2, 1);
+        timeTrackingPane.add(timerLabel, 0, 1, 2, 1);
+        timeTrackingPane.add(startButton, 0, 2);
+        //timeTrackingPane.add(pauseButton, 1, 1);
+        timeTrackingPane.add(stopButton, 1, 2);
 
         Scene timerScene = new Scene(timeTrackingPane);
 
         this.window.setScene(timerScene);
-        
 
         startButton.setOnAction((event) -> {
             this.timerStatus = "On";
@@ -327,7 +359,7 @@ public class MainApp extends Application {
                         } catch (Exception e) {
                             System.out.println("Error");
                         }
-                        
+
                         stop();
                     }
                     if (CurrentTimerStatus().equals("Paused")) {
@@ -338,11 +370,10 @@ public class MainApp extends Application {
                         }
                         stop();
                     }
-                    
+
                     if (now - pasttime < 1000000000) {
                         return;
                     }
-                    
 
                     this.t++;
                     Double minutes = Math.floor(this.t / 60);
@@ -373,16 +404,254 @@ public class MainApp extends Application {
                 }
             }.start();
         });
-        
+
         stopButton.setOnAction((event) -> {
-           this.timerStatus = "Stopped";
-           this.window.setScene(mainMenuScene);
+            this.timerStatus = "Stopped";
+            this.window.setScene(buildCourseMenuScene());
+        });
+
+        //pauseButton.setOnAction((event) -> {
+        //this.timerStatus = "Paused";
+        //});
+    }
+
+    public void buildTimeAddingScene() {
+        this.basePane.getChildren().clear();
+        Label courseNameLabel = new Label("Course: " + this.selectedCourse.getName());
+        Label courseTimeLabel = new Label("Time tracked: " + this.selectedCourse.formatTime());
+        Label hourLabel = new Label("Hours to add");
+        TextField hourField = new TextField();
+        Label minuteLabel = new Label("Minutes to add");
+        TextField minuteField = new TextField();
+        Label secondLabel = new Label("Seconds to add");
+        TextField secondField = new TextField();
+        Label errorLabel = new Label("");
+
+        Button addButton = new Button("Add time");
+        addButton.setMaxWidth(180);
+        Button backButton = new Button("Back to menu");
+        backButton.setMaxWidth(180);
+
+        this.basePane.add(courseNameLabel, 0, 0);
+        this.basePane.add(courseTimeLabel, 0, 1);
+        this.basePane.add(hourLabel, 0, 2);
+        this.basePane.add(hourField, 0, 3);
+        this.basePane.add(minuteLabel, 0, 4);
+        this.basePane.add(minuteField, 0, 5);
+        this.basePane.add(secondLabel, 0, 6);
+        this.basePane.add(secondField, 0, 7);
+        this.basePane.add(addButton, 0, 8);
+        this.basePane.add(backButton, 0, 9);
+        this.basePane.add(errorLabel, 0, 10);
+
+        this.window.setScene(this.baseScene);
+
+        addButton.setOnAction((event) -> {
+            Double hours = 0.0;
+            Double minutes = 0.0;
+            Double seconds = 0.0;
+
+            try {
+                if (!hourField.getText().equals("")) {
+                    hours = Double.parseDouble(hourField.getText());
+                }
+
+                if (!minuteField.getText().equals("")) {
+                    minutes = Double.parseDouble(minuteField.getText());
+                }
+
+                if (!secondField.getText().equals("")) {
+                    seconds = Double.parseDouble(secondField.getText());
+                }
+
+                if (hours < 0 || minutes < 0 || seconds < 0) {
+                    errorLabel.setText("Error! Please try again!");
+                } else {
+                    Double timeToAdd = (hours * 60 * 60) + (minutes * 60) + seconds;
+                    this.dbwriter.addTime(this.selectedCourse, timeToAdd);
+                    //this.window.setScene(this.mainMenuScene);
+                    this.window.setScene(buildCourseMenuScene());
+                }
+
+            } catch (Exception e) {
+                errorLabel.setText("Error! Please try again!");
+            }
+
+        });
+
+        backButton.setOnAction((event) -> {
+            this.window.setScene(buildCourseMenuScene());
+        });
+
+    }
+
+    public GridPane makeDefaultPane() {
+        GridPane newpane = new GridPane();
+        newpane.setPrefSize(500, 320);
+        newpane.setAlignment(Pos.CENTER);
+        newpane.setVgap(10);
+        newpane.setHgap(10);
+        newpane.setPadding(new Insets(20, 20, 20, 20));
+        return newpane;
+    }
+
+    public void buildTimeChangingScene() {
+        this.basePane.getChildren().clear();
+        Label courseNameLabel = new Label("Course: " + this.selectedCourse.getName());
+        Label courseTimeLabel = new Label("Time tracked: " + this.selectedCourse.formatTime());
+        Label hourLabel = new Label("Hours");
+        TextField hourField = new TextField();
+        Label minuteLabel = new Label("Minutes");
+        TextField minuteField = new TextField();
+        Label secondLabel = new Label("Seconds");
+        TextField secondField = new TextField();
+        Label errorLabel = new Label("NOTE! THESE VALUES WILL OVERWRITE CURRENT TRACKED TIME!");
+
+        Button addButton = new Button("Change time");
+        addButton.setMaxWidth(180);
+        Button backButton = new Button("Back to menu");
+        backButton.setMaxWidth(180);
+
+        this.basePane.add(courseNameLabel, 0, 0);
+        this.basePane.add(courseTimeLabel, 0, 1);
+        this.basePane.add(hourLabel, 0, 2);
+        this.basePane.add(hourField, 0, 3);
+        this.basePane.add(minuteLabel, 0, 4);
+        this.basePane.add(minuteField, 0, 5);
+        this.basePane.add(secondLabel, 0, 6);
+        this.basePane.add(secondField, 0, 7);
+        this.basePane.add(addButton, 0, 8);
+        this.basePane.add(backButton, 0, 9);
+        this.basePane.add(errorLabel, 0, 10);
+
+        this.window.setScene(this.baseScene);
+
+        addButton.setOnAction((event) -> {
+            Double hours = 0.0;
+            Double minutes = 0.0;
+            Double seconds = 0.0;
+
+            try {
+                if (!hourField.getText().equals("")) {
+                    hours = Double.parseDouble(hourField.getText());
+                }
+
+                if (!minuteField.getText().equals("")) {
+                    minutes = Double.parseDouble(minuteField.getText());
+                }
+
+                if (!secondField.getText().equals("")) {
+                    seconds = Double.parseDouble(secondField.getText());
+                }
+
+                if (hours < 0 || minutes < 0 || seconds < 0) {
+                    errorLabel.setText("Error! Please try again!");
+                } else {
+                    Double timeToAdd = (hours * 60 * 60) + (minutes * 60) + seconds;
+                    this.dbwriter.editTime(this.selectedCourse, timeToAdd);
+                    //this.window.setScene(this.mainMenuScene);
+                    this.window.setScene(buildCourseMenuScene());
+                }
+
+            } catch (Exception e) {
+                errorLabel.setText("Error! Please try again!");
+            }
+
+        });
+
+        backButton.setOnAction((event) -> {
+            this.window.setScene(buildCourseMenuScene());
+        });
+    }
+
+    public void buildSummaryScene() {
+        //this.basePane.getChildren().clear();
+        GridPane summaryPane = new GridPane();
+        summaryPane.setPrefSize(800, 520);
+        summaryPane.setAlignment(Pos.CENTER);
+        summaryPane.setVgap(10);
+        summaryPane.setHgap(10);
+        summaryPane.setPadding(new Insets(20, 20, 20, 20));
+
+        NumberAxis xAx = new NumberAxis();
+        CategoryAxis yAx = new CategoryAxis();
+
+        BarChart<Number, String> courseBarChart = new BarChart<>(xAx, yAx);
+        courseBarChart.setTitle("Summary");
+        courseBarChart.setLegendVisible(false);
+        XYChart.Series trackedTime = new XYChart.Series();
+        for (Course c : getUsersCourses(this.loggedUser)) {
+            Double timetracked = c.getTime();
+            Double minutes = Math.floor(timetracked / 60);
+            Double hours = Math.floor(minutes / 60);
+            trackedTime.getData().add(new XYChart.Data(hours.intValue(), c.getName()));
+        }
+
+        courseBarChart.getData().add(trackedTime);
+        
+        ScrollPane courseListPaneScroll = new ScrollPane();
+        courseListPaneScroll.setPrefSize(900, 600);
+        
+        Label infoLabel = new Label("SUMMARY OF TRACKED TIMES");
+        infoLabel.setFont(new Font("Arial", 30));
+        summaryPane.add(infoLabel, 0, 0);
+        summaryPane.add(courseBarChart, 0, 1);
+        int index = 2;
+        for (Course c : getUsersCourses(this.loggedUser)) {
+            Label l = new Label(c.getName() + ": " + c.formatTime());
+            summaryPane.add(l, 0, index);
+            index++;
+        }
+        
+        Button menuButton = new Button("Back to menu");
+        summaryPane.add(menuButton, 0, index);
+        
+        courseListPaneScroll.setContent(summaryPane);
+        Scene summaryListScene = new Scene(courseListPaneScroll);
+        this.window.setScene(summaryListScene);
+        
+        menuButton.setOnAction((event) -> {
+            this.window.setScene(buildMainMenuScene());
+        });
+
+    }
+
+    public void buildNewCourseScene() {
+        this.basePane.getChildren().clear();
+        Label newCourseNameLabel = new Label("Define course name");
+        TextField newCourseNameField = new TextField();
+        Button createCourseButton = new Button("Create course");
+        Button menuButton = new Button("Back to menu");
+        Label newCourseErrorLabel = new Label("");
+
+        this.basePane.add(newCourseNameLabel, 0, 0, 2, 1);
+        this.basePane.add(newCourseNameField, 0, 1, 2, 1);
+        this.basePane.add(createCourseButton, 0, 2);
+        this.basePane.add(menuButton, 1, 2);
+        this.basePane.add(newCourseErrorLabel, 0, 3, 2, 1);
+
+        //Scene newCourseScene = new Scene(this.basePane);
+        this.window.setScene(this.baseScene);
+        
+        menuButton.setOnAction((event) -> {
+            this.window.setScene(buildMainMenuScene());
+        });
+        
+        createCourseButton.setOnAction((event) -> {
+            if (newCourseNameField.getText().equals("")) {
+                newCourseErrorLabel.setText("Error! Please try again!");
+            } else {
+                try {
+                    Course c = new Course(newCourseNameField.getText(), this.loggedUser);
+                    this.dbwriter.addCourse(c);
+                    this.window.setScene(buildMainMenuScene());
+                } catch (Exception e) {
+                    newCourseErrorLabel.setText("Error! Please try again!");
+                }
+            }
         });
         
         
-        pauseButton.setOnAction((event) -> {
-           this.timerStatus = "Paused"; 
-        });
     }
 
     public boolean logUserIn(String userName) {
@@ -410,6 +679,8 @@ public class MainApp extends Application {
 
         }
     }
+    
+    
 
     public List<Course> getUsersCourses(User user) {
         List<Course> courseList = new ArrayList<>();
@@ -423,17 +694,15 @@ public class MainApp extends Application {
 
         return courseList;
     }
-    
+
     public String CurrentTimerStatus() {
         return this.timerStatus;
     }
-    
+
     public void addTrackedTime(int time) throws Exception {
         Double timeToAdd = 0.0 + time;
         this.dbwriter.addTime(this.selectedCourse, timeToAdd);
     }
-    
-    
 
     public static void main(String[] args) {
         launch(MainApp.class);
