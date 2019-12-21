@@ -5,7 +5,7 @@
  */
 package studytimetracker;
 
-import studytimetracker.ui.StudyTimeTrackerUi;
+import studytimetracker.ui.StudyTimeTrackerGui;
 
 /**
  *
@@ -14,7 +14,7 @@ import studytimetracker.ui.StudyTimeTrackerUi;
 public class Main {
     
     public static void main(String[] args) throws Exception {
-        StudyTimeTrackerUi.main(args);
+        StudyTimeTrackerGui.main(args);
     }
     
     
