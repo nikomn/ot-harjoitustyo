@@ -100,8 +100,7 @@ muuntaminen esim. sql-tietokannaksi olisi helpompaa.
 - Testausten osalta testattavat asiat voisi olla jotenkin
 kattavammin toteutettu ja sovelluksen koodi voisi olla enemmän
 "synkronisoitu" testien kanssa.
-- Dokumentaation osalta kaaviot yms. voisi olla selkeämmin piirrettyjä ja
-jos aikaa olisi ollut enemmän, olisi kannattanut panostaa
-piirto-ohjelmien toiminnallisuuksien opetteluun.
+- Dokumentaation osalta kaavioita olisi hyvä olla enemmän, ja ohjelman eri vaiheita
+olisi kuvattu myös virtauskaavioiden kautta.
 - Sovelluksessa voisi myös olla enemmän toiminnallisuutta ja sitä voisi
 laajentaa paljonkin nykyisestä.

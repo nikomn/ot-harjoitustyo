@@ -2,7 +2,7 @@
 
 ## Ohjelman lataaminen koneelle
 
-Lataa jar-tiedosto [studytimetracker.jar](https://github.com/nikomn/ot-harjoitustyo/releases/tag/loppupalautus) tai lataa projekti koneellesi komennolla:
+Lataa jar-tiedosto [studytimetracker.jar](https://github.com/nikomn/ot-harjoitustyo/releases/tag/viikko7) tai lataa projekti koneellesi komennolla:
 
 ```
 git clone https://github.com/nikomn/ot-harjoitustyo.git

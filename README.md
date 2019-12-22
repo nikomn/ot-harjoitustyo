@@ -24,7 +24,7 @@ Javan tarpeita.
 
 [Arkkitehtuurikuvaus](https://github.com/nikomn/ot-harjoitustyo/blob/master/dokumentaatio/arkkitehtuuri.md)
 
-[Arkkitehtuurikuvaus](https://github.com/nikomn/ot-harjoitustyo/blob/master/dokumentaatio/testausdokumentti.md)
+[Testausdokumentti](https://github.com/nikomn/ot-harjoitustyo/blob/master/dokumentaatio/testausdokumentti.md)
 
 [Tuntikirjanpito sovellukseen tekemiseen käytetystä ajasta](https://github.com/nikomn/ot-harjoitustyo/blob/master/dokumentaatio/tuntikirjanpito.md)
 
@@ -37,6 +37,8 @@ Javan tarpeita.
 [Viikko 5](https://github.com/nikomn/ot-harjoitustyo/releases/tag/viikko5)
 
 [Viikko 6](https://github.com/nikomn/ot-harjoitustyo/releases/tag/viikko6)
+
+[Viikko 7 - loppupalautus](https://github.com/nikomn/ot-harjoitustyo/releases/tag/viikko7)
 
 ## Komentoriviltä ajettavia toimintoja
 

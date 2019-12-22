@@ -17,4 +17,7 @@
 | 10.12. |   2.5  | Dokumentaation täydentämistä, javadoc aloittaminen, uusi release |
 | 15.12. |   5  | GUI käyttöliittymän rakentamista |
 | 17.12. |   1.5  | Dokumentaation täydentämistä |
-| yht    | 35.5 | |
+| 20.12. |   4.5  | GUI käyttöliittymän ohjelmoimista |
+| 21.12. |   8  | GUI käyttöliittymän ohjelmoimista |
+| 22.12. |   4.5  | Dokumentaation täydentämistä ja projektin loppupalautuskuntoon valmistelu |
+| yht    | 52.5 | |
