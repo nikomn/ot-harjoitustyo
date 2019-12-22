@@ -25,7 +25,7 @@ java -jar studytimetracker.jar
 Ohjelma käynnistyy projektin pää-kansiosta komennolla
 
 ```
-mvn compile exec:java -Dexec.mainClass=studytimetracker.ui.StudyTimeTrackerGUi
+mvn compile exec:java -Dexec.mainClass=studytimetracker.Main
 ```
 
 Vaihtoehtoisesti voit myös avata projektin esim. netbeansissa ja suorittaa ohjelmaa netbeansin kautta.
