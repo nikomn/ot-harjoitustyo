@@ -63,16 +63,50 @@ public class StudyTimeTrackerTest {
     }
     
     @Test
-    public void addingUsersToDbWorks() {
-        List<User> users = dbwriter.getUsers();
+    public void courseGetNameReturnsCorrectValue() {
+
+        assertEquals("test", testcourse.getName());
+
+    }
+    
+    
+    @Test
+    public void courseGetTimeReturnsCorrectValue() {
         
-        assertEquals(testuser, users.get(0));
+        Course course = new Course("timetest", testuser);
+        course.addTime(20);
+        
+
+        assertEquals("20.0", "" + course.getTime());
+
+    }
+    
+    @Test
+    public void addingUsersToDbWorks() {
+        User user = new User("new user");
+        try {
+            dbwriter.addUser(user);
+            List<User> users = dbwriter.getUsers();
+            assertEquals(testuser, users.get(0));
+            assertEquals(user, users.get(1));
+        } catch (Exception e) {
+            
+        }
+        
     }
     
     @Test
     public void addingCoursesToDbWorks() {
-        List<Course> courses = dbwriter.getCourses();
+        Course course = new Course("new course", testuser);
+        try {
+            dbwriter.addCourse(course);
+            List<Course> courses = dbwriter.getCourses();
+            assertEquals(testcourse, courses.get(0));
+            assertEquals(course, courses.get(1));
+        } catch (Exception e) {
+        }
         
-        assertEquals(testcourse, courses.get(0));
     }
+    
+      
 }

@@ -59,7 +59,6 @@ Kyseinen luokka tarjoaa eri toiminnoille omat metodit:
 - void trackCourse(Course course)
 - void editTime(Course course, Double timeToAdd)
 
-(todo... lisää pakkauskaaviot...)
 
 ## Tietojen tallennus
 
@@ -87,17 +86,15 @@ Sovelluksen toiminnallisuutta voi kuvailla esim. seuraavan kaavion kautta:
 Oleellista on huomata kaaviosta, että käyttöliittymä kommunikoi käyttäjän ja tietokannan välillä
 kulkevaa dataa DBWriter olion välityksellä. DBWriter pitää huolta tietokannan lukemisesta ja tietokantaan kirjoitamisesta.
 
-(todo... lisää virtauskaavioita eri toiminnallisuuksille ...)
 
 ## Ohjelmaan jääneet heikkoudet
 
-- Tässä vaiheessa ohjelma on vielä alkeellisen tekstikäyttöliittymän varassa
-, mutta toivonmukaan lopullisessa versiossa graafinen käyttöliittymä on toiminnassa.
-(Työnalla oleva käyttöliittymä on nähtävissä [täällä](https://github.com/nikomn/ot-harjoitustyo/blob/master/src/main/java/studytimetracker/ui/MainApp.java))
 - Graafisen käyttöliittymänkin osalta jää paljon parannettavaa, ja toteutus
 olisi ehkä ollut parempi tehdä jotenkin muuten kuin JavaFX:llä, jolloin
 olisi ehkä ollut helpompi "piirtää" näkymät jotenkin erikseen, jolloin
 pelkkään käyttöliittymän ulkonäköön ei olisi tarvinnut käyttää niin paljoa aikaa.
+- Graafisen käyttöliittymän koodissa on vielä paljon päällekäisyyttä ja luokka on
+melko pitkä ja sisältää paljon metodeja, joten sen voisi hajoittaa pienempiin luokkin.
 - DAO malli jäi vaiheeseen, ja sitä voisi parantaa, jolloin tietokannan
 muuntaminen esim. sql-tietokannaksi olisi helpompaa.
 - Testausten osalta testattavat asiat voisi olla jotenkin

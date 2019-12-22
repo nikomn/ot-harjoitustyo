@@ -165,26 +165,4 @@ public class Course {
         return hoursFormat + ":" + minutesFormat + ":" + secondsFormat;
     }
 
-    /**
-     * Tekstikäyttöliittymää varten luotu metodi, joka tulostaa ajan 
-     * muunnettuna visuaaliseen muotoon, siten, että tunti == #
-     * @return String
-     */
-    public String formatVisual() {
-        Double minutes = Math.floor(this.totaltime / 60);
-        Double hours = Math.floor(minutes / 60);
-
-        String visualTime = "";
-
-        if (hours < 1) {
-            visualTime = "|";
-        } else {
-            for (int i = 0; i < hours.intValue(); i++) {
-                visualTime = visualTime + "#";
-            }
-        }
-
-        return visualTime + " (" + formatTime() + ")";
-    }
-
 }

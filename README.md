@@ -4,18 +4,33 @@
 
 Ohjelmointitekniikat kurssin harjoitustyö
 
-Opiskelun ajankäytön seurantasovellus.
+Opiskelun ajankäytön seurantasovellus, jonka avulla käyttäjän on mahdollista
+seurata eri kursseihin käyttämäänsä aikaa. Sovellusta voi käyttää useampi käyttäjä
+ja kaikilla on oma tunnus ja omat seurattavat kurssinsa.
+
+## Huomioitavaa Java versioihin liittyen
+
+Soveluksen käytässä voi olla ongelmia eri Java versioilla ja sovelluksen toimivuus
+on testattu Helsingin yliopiston fuksiläppärillä, jossa Cubbli Linux.
+Muissa ympäristöissä toivuudessa voi olla ongelmia, joista tosin usein pääsee
+eroon muokkaamalla pom.xml tiedostoa siten, että se vastaa koneeseen asennetun
+Javan tarpeita.
 
 ## Dokumentaatio
 
+[Käyttöohje](https://github.com/nikomn/ot-harjoitustyo/blob/master/dokumentaatio/kayttoohje.md)
 
-[Alustava määrittelydokumentti](https://github.com/nikomn/ot-harjoitustyo/blob/master/dokumentaatio/vaatimusmaarittelu.md)
-
-[Tuntikirjanpito sovellukseen tekemiseen käytetystä ajasta](https://github.com/nikomn/ot-harjoitustyo/blob/master/dokumentaatio/tuntikirjanpito.md)
+[Vaatimusmäärittely](https://github.com/nikomn/ot-harjoitustyo/blob/master/dokumentaatio/vaatimusmaarittelu.md)
 
 [Arkkitehtuurikuvaus](https://github.com/nikomn/ot-harjoitustyo/blob/master/dokumentaatio/arkkitehtuuri.md)
 
-[Käyttöohje](https://github.com/nikomn/ot-harjoitustyo/blob/master/dokumentaatio/kayttoohje.md)
+Testausdokumentti (todo...)
+
+[Tuntikirjanpito sovellukseen tekemiseen käytetystä ajasta](https://github.com/nikomn/ot-harjoitustyo/blob/master/dokumentaatio/tuntikirjanpito.md)
+
+
+
+
 
 ## Release
 
