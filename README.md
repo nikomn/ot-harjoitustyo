@@ -24,7 +24,7 @@ Javan tarpeita.
 
 [Arkkitehtuurikuvaus](https://github.com/nikomn/ot-harjoitustyo/blob/master/dokumentaatio/arkkitehtuuri.md)
 
-Testausdokumentti (todo...)
+[Arkkitehtuurikuvaus](https://github.com/nikomn/ot-harjoitustyo/blob/master/dokumentaatio/testausdokumentti.md)
 
 [Tuntikirjanpito sovellukseen tekemiseen käytetystä ajasta](https://github.com/nikomn/ot-harjoitustyo/blob/master/dokumentaatio/tuntikirjanpito.md)
 
